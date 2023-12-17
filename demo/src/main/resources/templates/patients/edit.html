@@ -1,0 +1,18 @@
+<!-- resources/templates/patient/edit.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Patient</title>
+    <!-- Inside the head tag of your Thymeleaf templates -->
+    <script th:src="@{/js/main.js}"></script>
+</head>
+<body>
+<h1>Edit Patient</h1>
+<form th:action="@{/patients/edit/{id}(id=${patient.id})}" th:object="${patient}" method="post">
+    <label>Name: <input type="text" th:field="*{name}" /></label><br/>
+    <label>COVID Positive: <input type="checkbox" th:field="*{covidPositive}" /></label><br/>
+    <button type="submit">Update Patient</button>
+</form>
+</body>
+</html>

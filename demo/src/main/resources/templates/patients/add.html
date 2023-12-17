@@ -1,0 +1,18 @@
+<!-- resources/templates/patient/add.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Patient</title>
+    <!-- Inside the head tag of your Thymeleaf templates -->
+    <script th:src="@{/js/main.js}"></script>
+</head>
+<body>
+<h1>Add Patient</h1>
+<form th:action="@{/patients/add}" th:object="${patient}" method="post">
+    <label>Name: <input type="text" th:field="*{name}" /></label><br/>
+    <label>COVID Positive: <input type="checkbox" th:field="*{covidPositive}" /></label><br/>
+    <button type="submit">Add Patient</button>
+</form>
+</body>
+</html>

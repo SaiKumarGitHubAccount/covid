@@ -1,0 +1,44 @@
+<!-- patient-list.component.html -->
+
+<div>
+    <h2>Patients</h2>
+  
+    <!-- Patient Form -->
+    <form [formGroup]="patientForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name" />
+  <!-- Other form controls -->
+
+  <label for="covidPositive">COVID Positive:</label>
+  <input type="checkbox" id="covidPositive" formControlName="covidPositive" />
+
+  <!-- Add more form controls as needed -->
+      <!-- Add more form controls as needed -->
+  
+      <button type="button" (click)="addPatient()">Add Patient</button>
+    </form>
+  
+    <!-- Patient Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>CovidPositive</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patient of patients">
+          <td>{{ patient.id }}</td>
+          <td>{{ patient.name }}</td>
+          <td>{{ patient.covidPositive }}</td>
+          <td>
+            <button type="button" (click)="loadPatient(patient.id)">Edit</button>
+            <button type="button" (click)="deletePatient(patient.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
